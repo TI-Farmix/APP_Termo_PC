@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import base64
+from streamlit_pdf_viewer import pdf_viewer
 from datetime import datetime
 import os
 
@@ -17,11 +18,7 @@ st.write("Por favor, leia o termo abaixo e confirme sua leitura ao terminar.")
 termo_pc = "termo_computadores.pdf"
 
 if os.path.exists(termo_pc):
-    with open(termo_pc, "rb") as f:
-        pdf_bytes = f.read()
-        base64_pdf = base64.b64encode(pdf_bytes).decode('utf-8')
-    pdf_display = f'''<embed src="data:application/pdf;base64,{base64_pdf}" width="100%" height="650" type="application/pdf">'''
-    st.markdown(pdf_display, unsafe_allow_html=True)
+   pdf_viewer(termo_pc, width=700)
 else:
     st.warning("PDF não existe")
 
