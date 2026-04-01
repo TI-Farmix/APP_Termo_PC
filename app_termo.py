@@ -51,7 +51,7 @@ if st.button("Salvar Confirmação"):
         registro = "registro.csv"
         data = datetime.now().strftime("%d/%m/%Y, %H:%M:%S")
 
-        novo_registro = pd.DataFrame([{"Nome": nome; "E-mail": email; "Data/Hora":data}])
+        novo_registro = pd.DataFrame([{"Nome": nome, "E-mail": email, "Data/Hora":data}])
 
         if os.path.exists(registro):
             df_existente = pd.read_csv(registro, sep=';')
